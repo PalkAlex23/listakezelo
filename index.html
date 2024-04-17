@@ -14,14 +14,18 @@
             <h1>Listák kezelése</h1>
         </header>
         <div class="urlap">
-            <form>
+            <form class="was-validated">
                 <div class="mb-3 mt-3">
-                <label for="nev" class="form-label">Név:</label>
-                <input type="text" class="form-control" id="nev" placeholder="Írja be a nevét" name="nev">
+                    <label for="nev" class="form-label">Név:</label>
+                    <input type="text" class="form-control" id="nev" pattern="^[A-Z][A-z]{3,}$" required placeholder="Írja be a nevét" name="nev">
+                    <div class="valid-feedback">OK!</div>
+                    <div class="invalid-feedback">Kötelező mező! Nagybetűvel kezdődjön, legalább 3 betű!</div>
                 </div>
                 <div class="mb-3">
-                <label for="kor" class="form-label">Életkor:</label>
-                <input type="number" class="form-control" id="kor" name="kor" min="0" max="120">
+                    <label for="kor" class="form-label">Életkor:</label>
+                    <input type="number" class="form-control" id="kor" name="kor" min="0" max="120" value="30">
+                    <div class="valid-feedback">OK!</div>
+                    <div class="invalid-feedback">A kor 0 és 120 között lehet!</div>
                 </div>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="ferfi" name="nem" value="true" checked>Férfi
@@ -31,7 +35,7 @@
                     <input type="radio" class="form-check-input" id="no" name="nem" value="false">Nő
                     <label class="form-check-label" for="no"></label>
                 </div>
-                <button type="submit" class="btn btn-primary">Hozzáadás</button>
+                <button type="submit" id="submit" class="btn btn-primary">Hozzáadás</button>
             </form>
         </div>
         <div class="be">
